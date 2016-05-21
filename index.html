@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Realster Project Made by Linxin(Jeff) </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="searchCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <p> Country Name: </p>
+                <form class="input-group search">
+                    <input type="search" placeholder="Search..." autocomplete="off" ng-model="input">
+                    <ul class="search-ac">
+                        <li ng-repeat="result in search_result" ng-show="$index < 10">
+                            <a ng-click='searchCustomer(result.country)'>{{result.country}} + ({{result.num}}) </a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-offset-3">
+            <ul ng-repeat="customer in show_customer">
+                <li>{{customer.ID}} - {{customer.name}} ({{customer.email}})</li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
