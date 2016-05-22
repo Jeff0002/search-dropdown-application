@@ -1,11 +1,12 @@
 var express    = require("express");
 var mysql      = require('mysql');
+var http       = require('http');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'sakila',
-  port: '8889'
+  host     : 'us-cdbr-iron-east-04.cleardb.net',
+  user     : 'bd4552449d3206',
+  password : 'b5d4d546',
+  database : 'heroku_1f7cb0988286813',
+  port: '3306'
 });
 var app = express();
 
@@ -42,5 +43,7 @@ app.get("/customer/:country",function(req, res){
     console.log('Error while performing Query.');
   });
 });
+var server = http.createServer(app);
+var port_number = server.listen(process.env.PORT || 3000);
 
-app.listen(3000);
+app.listen(port_number);

@@ -4,7 +4,7 @@ app.controller("searchCtrl", function ($scope, $http) {
     $scope.$watch('input', function (input) {
         if (input != undefined) {
             $http({
-                    url: "http://localhost:3000/search/" + input, 
+                    url: "http://search-dropdown-api.herokuapp.com/search/" + input, 
                     method: "GET",
                 })
                 .success(function (data, status) {
@@ -16,7 +16,7 @@ app.controller("searchCtrl", function ($scope, $http) {
     $scope.searchCustomer = function(country){
         console.log(country);
         $http({
-            url: "http://localhost:3000/customer/" + country,
+            url: "http://search-dropdown-api.herokuapp.com/customer/" + country,
             method: "GET"
             })
             .success(function (data, status) {
